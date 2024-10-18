@@ -1,39 +1,71 @@
-<!-- QR Code Section -->
-<div id="qr-code-container">
-  <h3>Scan this QR code to interact with the video on your phone:</h3>
-  <div id="qrcode"></div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Pair to Play</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body>
+    <h1>Welcome</h1>
+    <p>Scan the QR code on your phone to pair and begin the experience!</p>
 
-<script>
-  const video = document.getElementById('interactive-video');
-  const sessionId = 'unique-session-id'; // Use a unique ID for each session
-  const socket = new WebSocket('wss://your-heroku-app.herokuapp.com'); // Replace with your live WebSocket URL
+    <div id="qr-container">
+        <div id="qrCode"></div>
+    </div>
 
-  // Generate QR Code with the GitHub Pages URL for the phone page
-  const phoneUrl = 'http://conorhoner.github.io/phone.html';
-  const qrcode = new QRCode(document.getElementById("qrcode"), {
-    text: phoneUrl,
-    width: 128,
-    height: 128
-  });
+    <!-- Load qrcode.min.js locally -->
+    <script src="js/qrcode.min.js"></script>
 
-  socket.onopen = function() {
-    socket.send(JSON.stringify({ type: 'join', sessionId: sessionId }));
-  };
+    <!-- Firebase SDKs - Compatibility Version -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-database-compat.js"></script>
 
-  socket.onmessage = function(event) {
-    const data = JSON.parse(event.data);
-    if (data.type === 'choice') {
-      if (data.choice === 'skip') {
-        video.currentTime += 30; // Example: skip 30 seconds
-      }
-    }
-  };
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA7LgxW9RMWC_0s-0Ovw_2v037glMMFOEY",
+            authDomain: "mai-day.firebaseapp.com",
+            databaseURL: "https://mai-day-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "mai-day",
+            storageBucket: "mai-day.appspot.com",
+            messagingSenderId: "78051109148",
+            appId: "1:78051109148:web:fdaa31b2919e7fc0e6b2d9",
+            measurementId: "G-3S05BDT6K9"
+        };
 
-  video.addEventListener('timeupdate', function() {
-    if (video.currentTime >= 5 && video.currentTime <= 6) {
-      video.pause();
-      socket.send(JSON.stringify({ type: 'pause', sessionId: sessionId }));
-    }
-  });
-</script>
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Function to generate a unique session ID
+        function generateSessionId() {
+            return Math.random().toString(36).substring(2, 15);  // Simple random session ID
+        }
+
+        // Generate the session ID and the URL for the QR code
+        let sessionId = generateSessionId();
+        let qrCodeUrl = "https://www.mai-day.com/phone/index.html?session=" + sessionId;
+
+        // Generate the QR code
+        let qrCodeContainer = document.getElementById("qrCode");
+        let qrCode = new QRCode(qrCodeContainer, {
+            text: qrCodeUrl,
+            width: 200,
+            height: 200
+        });
+
+        // Listen for session connection (phone pairing)
+        console.log("Session ID:", sessionId);
+        firebase.database().ref("sessions/" + sessionId).on("value", function(snapshot) {
+            let sessionData = snapshot.val();
+            console.log("Firebase data received:", sessionData);
+            if (sessionData && sessionData.paired) {
+                console.log("Phone paired, redirecting to video page...");
+                window.location.href = "video.html?session=" + sessionId;
+            } else {
+                console.log("Phone not paired yet.");
+            }
+        });
+    </script>
+</body>
+</html>
