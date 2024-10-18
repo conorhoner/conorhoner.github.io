@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video - Interactive Experience</title>
+</head>
+<body>
+    <h1>Interactive Video Experience</h1>
+
+    <div id="video-container">
+        <video id="video" width="800" controls autoplay muted>
+            <source src="assets/videos/scene1A.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Firebase SDKs - Compatibility Version -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-database-compat.js"></script>
+
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA7LgxW9RMWC_0s-0Ovw_2v037glMMFOEY",
+            authDomain: "mai-day.firebaseapp.com",
+            databaseURL: "https://mai-day-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "mai-day",
+            storageBucket: "mai-day.appspot.com",
+            messagingSenderId: "78051109148",
+            appId: "1:78051109148:web:fdaa31b2919e7fc0e6b2d9",
+            measurementId: "G-3S05BDT6K9"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Get session ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionId = urlParams.get("session");
+
+        // Notify phone when video ends
+        const videoElement = document.getElementById("video");
+
+        videoElement.onended = function() {
+            console.log("Video ended. Notifying phone...");
+            // Update Firebase to notify the phone that the video has ended
+            firebase.database().ref("sessions/" + sessionId).update({
+                videoEnded: true
+            }).then(() => {
+                console.log("Notified phone that the video ended.");
+            }).catch(error => {
+                console.error("Error updating Firebase:", error);
+            });
+        };
+    </script>
+</body>
+</html>

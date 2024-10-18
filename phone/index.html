@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Control</title>
+</head>
+<body>
+    <h1>Control the Interactive Video</h1>
+    <p id="message">The video is playing. Your choices will appear soon...</p>
+    
+    <div id="choice-buttons" style="display: none;">
+        <button onclick="sendChoice('1A')">Choice 1A</button>
+        <button onclick="sendChoice('1B')">Choice 1B</button>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-database-compat.js"></script>
+
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA7LgxW9RMWC_0s-0Ovw_2v037glMMFOEY",
+            authDomain: "mai-day.firebaseapp.com",
+            databaseURL: "https://mai-day-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "mai-day",
+            storageBucket: "mai-day.appspot.com",
+            messagingSenderId: "78051109148",
+            appId: "1:78051109148:web:fdaa31b2919e7fc0e6b2d9",
+            measurementId: "G-3S05BDT6K9"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Get session ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionId = urlParams.get("session");
+
+        // Listen for when the video ends and display the choice buttons
+        firebase.database().ref("sessions/" + sessionId).on("value", function(snapshot) {
+            let sessionData = snapshot.val();
+            console.log("Session data received on phone:", sessionData);
+
+            if (sessionData && sessionData.videoEnded) {
+                console.log("Video ended, displaying choices...");
+                document.getElementById("message").style.display = "none";
+                document.getElementById("choice-buttons").style.display = "block";
+            }
+        });
+
+        // Send user choice to Firebase
+        function sendChoice(choice) {
+            firebase.database().ref("sessions/" + sessionId).update({
+                choice: choice
+            });
+        }
+    </script>
+</body>
+</html>

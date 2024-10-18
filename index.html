@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Pair to Play (With Auth)</title>
+</head>
+<body>
+    <h1>Welcome</h1>
+    <p>Scan the QR code on your phone to pair and begin the experience!</p>
+
+    <div id="qr-container">
+        <div id="qrCode"></div>
+    </div>
+
+    <!-- Load qrcode.min.js locally -->
+    <script src="js/qrcode.min.js"></script>
+
+    <!-- Firebase SDKs - Compatibility Version -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth-compat.js"></script>
+
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA7LgxW9RMWC_0s-0Ovw_2v037glMMFOEY",
+            authDomain: "mai-day.firebaseapp.com",
+            databaseURL: "https://mai-day-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "mai-day",
+            storageBucket: "mai-day.appspot.com",
+            messagingSenderId: "78051109148",
+            appId: "1:78051109148:web:fdaa31b2919e7fc0e6b2d9",
+            measurementId: "G-3S05BDT6K9"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Authenticate user anonymously before proceeding
+        firebase.auth().signInAnonymously()
+        .then(() => {
+            console.log("Signed in anonymously");
+
+            // Function to generate a unique session ID
+            function generateSessionId() {
+                return Math.random().toString(36).substring(2, 15);  // Simple random session ID
+            }
+
+            // Generate the session ID and the URL for the QR code
+            let sessionId = generateSessionId();
+            let qrCodeUrl = "https://lightgray-mole-832128.hostingersite.com/phone/index.html?session=" + sessionId;
+
+            // Generate the QR code
+            let qrCodeContainer = document.getElementById("qrCode");
+            let qrCode = new QRCode(qrCodeContainer, {
+                text: qrCodeUrl,
+                width: 200,
+                height: 200
+            });
+
+            // Listen for session connection (phone pairing)
+            firebase.database().ref("sessions/" + sessionId).on("value", function(snapshot) {
+                let sessionData = snapshot.val();
+                if (sessionData && sessionData.paired) {
+                    // Redirect to the video page once the phone is paired
+                    window.location.href = "video.html?session=" + sessionId;
+                }
+            });
+        })
+        .catch((error) => {
+            console.error("Anonymous sign-in failed:", error);
+        });
+    </script>
+</body>
+</html>
