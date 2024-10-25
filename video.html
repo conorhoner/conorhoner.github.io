@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video - Interactive Experience</title>
 </head>
+
 <body>
     <h1>Interactive Video Experience</h1>
 
@@ -42,9 +44,13 @@
         // Notify phone when video ends
         const videoElement = document.getElementById("video");
 
+        videoElement.oncanplay = function() {
+            console.log("Video ready to play...");
+            videoElement.play().catch(error => console.log("Autoplay blocked:", error));
+        };
+
         videoElement.onended = function() {
             console.log("Video ended. Notifying phone...");
-            // Update Firebase to notify the phone that the video has ended
             firebase.database().ref("sessions/" + sessionId).update({
                 videoEnded: true
             }).then(() => {
@@ -55,4 +61,5 @@
         };
     </script>
 </body>
+
 </html>

@@ -47,6 +47,8 @@
                 console.log("Video ended, displaying choices...");
                 document.getElementById("message").style.display = "none";
                 document.getElementById("choice-buttons").style.display = "block";
+            } else {
+                console.log("Waiting for video to end...");
             }
         });
 
