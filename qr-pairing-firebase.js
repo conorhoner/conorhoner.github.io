@@ -16,6 +16,6 @@ sessionRef.set({ status: 'waiting', sessionId });
 // Listen for connection confirmation from phone
 sessionRef.onSnapshot((doc) => {
   if (doc.exists && doc.data().status === 'connected') {
-    window.location.href = "/video.html"; // Redirect main screen
+    window.location.href = "/video.html"; // Redirect main screen to video.html when paired
   }
 });
