@@ -9,6 +9,7 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
 </head>
 <body>
+    <!-- Choices -->
     <div id="choiceButtons">
         <button onclick="makeChoice('A')">Choice A</button>
         <button onclick="makeChoice('B')">Choice B</button>
@@ -18,10 +19,10 @@
         const firebaseConfig = { /* Firebase Config */ };
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
-        
+
         // Get session ID from URL
         const sessionId = new URLSearchParams(window.location.search).get('sessionId');
-        
+
         function makeChoice(choice) {
             db.collection("sessions").doc(sessionId).update({ choice });
         }

@@ -9,7 +9,7 @@ const sessionRef = db.collection("sessions").doc();  // Create new session ID
 const sessionId = sessionRef.id; // Unique session ID
 
 // Update session data with QR code link
-const qrCodeUrl = `${window.location.origin}/phone/index.html?sessionId=${sessionId}`;
+const qrCodeUrl = `${window.location.origin}/phone/phoneindex.html?sessionId=${sessionId}`;
 new QRCode(document.getElementById("qrcode"), qrCodeUrl);
 sessionRef.set({ status: 'waiting', sessionId });
 
