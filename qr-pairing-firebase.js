@@ -36,4 +36,4 @@ setTimeout(() => {
       alert("Session expired. Please try again.");
     }
   }).catch(error => console.error("Error checking session timeout:", error));
-}, 300000); // 5 minutes
+}, 300000);
