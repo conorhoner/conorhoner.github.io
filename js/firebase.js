@@ -18,7 +18,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
-// Sign in anonymously
+// Authenticate the user anonymously
 signInAnonymously(auth)
   .then(() => {
     console.log("Signed in anonymously");
@@ -27,4 +27,5 @@ signInAnonymously(auth)
     console.error("Error signing in anonymously:", error);
   });
 
+// Export the database for use elsewhere
 export { db };

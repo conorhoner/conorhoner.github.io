@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive Film</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  
+
   <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
   <script type="module" src="/js/firebase.js"></script>
   <script type="module">
@@ -15,27 +15,29 @@
     const sessionID = Math.random().toString(36).substr(2, 9);
     const qrCodeURL = `https://www.mai-day.com/session.html?sessionID=${sessionID}`;
 
-    // Set initial session data in Firestore
+    // Function to create a session in Firestore
     async function createSession() {
-      try {
-        await setDoc(doc(db, "sessions", sessionID), {
-          scene: "scene1",
-          status: "waiting",
-          choicesAvailable: false,
-          choice: null
-        });
-        console.log("Session created with ID:", sessionID);
-      } catch (e) {
-        console.error("Error creating session:", e);
-      }
+    try {
+      // Create a new document in the 'sessions' collection
+      await setDoc(doc(db, "sessions", sessionID), {
+        scene: "scene1",
+        status: "waiting",
+        choicesAvailable: false,
+        choice: null,
+      });
+      console.log("Session created with ID:", sessionID);
+    } catch (e) {
+      console.error("Error creating session:", e);
     }
-
-    createSession();
+    }
 
     // Generate QR Code
     QRCode.toCanvas(document.getElementById("qrcode"), qrCodeURL, (error) => {
-      if (error) console.error(error);
+    if (error) console.error("QR Code generation error:", error);
     });
+
+    // Call the session creation function
+    createSession();
   </script>
 </head>
 
