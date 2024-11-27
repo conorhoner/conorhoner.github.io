@@ -15,3 +15,22 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export { db };
+
+
+//TEST
+import { db } from './firebase.js';
+import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
+
+// Test Firestore
+async function testFirestore() {
+  try {
+    const docRef = await addDoc(collection(db, "sessions"), {
+      test: "Hello, Firestore!"
+    });
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+}
+
+testFirestore();
