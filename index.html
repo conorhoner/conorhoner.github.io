@@ -11,7 +11,7 @@
     import { doc, setDoc } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
 
     const sessionID = Math.random().toString(36).substr(2, 9);
-    const qrCodeURL = `https://www.mai-day.com/session.html?sessionID=${sessionID}`;
+    const qrCodeURL = `https://mai-day.com/session.html?sessionID=${sessionID}`;
 
     // Set initial session data in Firestore
     async function createSession() {
