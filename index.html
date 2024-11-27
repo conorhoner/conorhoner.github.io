@@ -6,24 +6,40 @@
   <title>Interactive Film</title>
   <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
   <script type="module" src="/js/firebase.js"></script>
-</head>
-<body>
-  <h1>Scan to Begin</h1>
-  <canvas id="qrcode"></canvas>
-  <script>
+  <script type="module">
+    import { db } from "/js/firebase.js";
+    import { doc, setDoc } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
+
     const sessionID = Math.random().toString(36).substr(2, 9);
     const qrCodeURL = `https://mai-day.com/session.html?sessionID=${sessionID}`;
 
-    firebase.firestore().collection('sessions').doc(sessionID).set({
-      scene: 'scene1',
-      status: 'waiting',
-      choicesAvailable: false,
-      choice: null
-    });
+    // Set initial session data in Firestore
+    async function createSession() {
+      try {
+        await setDoc(doc(db, "sessions", sessionID), {
+          scene: "scene1",
+          status: "waiting",
+          choicesAvailable: false,
+          choice: null
+        });
+        console.log("Session created with ID:", sessionID);
+      } catch (e) {
+        console.error("Error creating session:", e);
+      }
+    }
 
-    QRCode.toCanvas(document.getElementById('qrcode'), qrCodeURL, (error) => {
+    createSession();
+
+    // Generate QR Code
+    QRCode.toCanvas(document.getElementById("qrcode"), qrCodeURL, (error) => {
       if (error) console.error(error);
     });
   </script>
+</head>
+
+
+<body>
+  <h1>Scan to Begin</h1>
+  <canvas id="qrcode"></canvas>
 </body>
 </html>
