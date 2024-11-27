@@ -1,5 +1,8 @@
+// Import Firebase libraries via CDN
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
+import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyBw3qJqCfZTwkebdTqA29trOc2f3ryhzBY",
@@ -11,17 +14,12 @@ const firebaseConfig = {
   measurementId: "G-5ESLTCVDYY"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
 export { db };
 
-
-//TEST
-import { db } from './firebase.js';
-import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
-
-// Test Firestore
+// --- TEST FIRESTORE CONNECTIVITY ---
 async function testFirestore() {
   try {
     const docRef = await addDoc(collection(db, "sessions"), {
@@ -33,4 +31,5 @@ async function testFirestore() {
   }
 }
 
+// Call the test function
 testFirestore();
