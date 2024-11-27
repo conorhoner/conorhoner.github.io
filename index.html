@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Film</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script src="/js/firebase.js"></script>
+</head>
+<body>
+  <h1>Scan to Begin</h1>
+  <canvas id="qrcode"></canvas>
+  <script>
+    const sessionID = Math.random().toString(36).substr(2, 9);
+    const qrCodeURL = `https://mai-day.com/session.html?sessionID=${sessionID}`;
+
+    firebase.firestore().collection('sessions').doc(sessionID).set({
+      scene: 'scene1',
+      status: 'waiting',
+      choicesAvailable: false,
+      choice: null
+    });
+
+    QRCode.toCanvas(document.getElementById('qrcode'), qrCodeURL, (error) => {
+      if (error) console.error(error);
+    });
+  </script>
+</body>
+</html>
