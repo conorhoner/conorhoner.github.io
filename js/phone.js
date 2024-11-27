@@ -1,17 +1,30 @@
-import { db } from './firebase.js';
-import { doc, onSnapshot, updateDoc } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
+import { db } from "/js/firebase.js";
+import { doc, getDoc } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
 
-const sessionID = new URLSearchParams(window.location.search).get('sessionID');
-const sessionRef = doc(db, 'sessions', sessionID);
+// Extract session ID from the URL
+const urlParams = new URLSearchParams(window.location.search);
+const sessionID = urlParams.get("sessionID");
 
-onSnapshot(sessionRef, (doc) => {
-  const data = doc.data();
-  if (data.choicesAvailable) {
-    document.getElementById('status').style.display = 'none';
-    document.getElementById('choices').style.display = 'block';
-  }
-});
-
-function makeChoice(choice) {
-  updateDoc(sessionRef, { choice });
+if (!sessionID) {
+  alert("No session ID found in the URL. Please try scanning the QR code again.");
+  throw new Error("Session ID missing from URL.");
 }
+
+async function joinSession() {
+  try {
+    // Fetch the existing session from Firestore
+    const sessionRef = doc(db, "sessions", sessionID);
+    const sessionSnap = await getDoc(sessionRef);
+
+    if (sessionSnap.exists()) {
+      console.log("Joined session:", sessionSnap.data());
+    } else {
+      console.error("No such session found!");
+      alert("The session does not exist. Please try again.");
+    }
+  } catch (e) {
+    console.error("Error joining session:", e);
+  }
+}
+
+joinSession();
