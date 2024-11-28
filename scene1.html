@@ -1,35 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scene 1 - Interactive Film</title>
-    <link rel="stylesheet" href="styles.css">
-    <script type="module">
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js'
-        import { getDatabase, ref, onValue, update } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js'
-        import { getAuth, signInAnonymously } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js'
-        
-        window.initializeApp = initializeApp;
-        window.getDatabase = getDatabase;
-        window.getAuth = getAuth;
-        window.signInAnonymously = signInAnonymously;
-        window.ref = ref;
-        window.onValue = onValue;
-        window.update = update;
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scene 1</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <script src="/js/firebase.js"></script>
+  <script src="/js/main.js"></script>
 </head>
 <body>
-    <div class="video-container">
-        <video id="sceneVideo" src="path/to/scene1-video.mp4"></video>
-    </div>
-    
-    <div id="choiceModal" class="modal" style="display: none;">
-        <div class="modal-content">
-            <h2>Make Your Choice</h2>
-            <p>Check your phone to make a decision!</p>
-        </div>
-    </div>
-    <script type="module" src="scene.js"></script>
+  <video id="video" autoplay>
+    <source src="/assets/videos/scene1.mp4" type="video/mp4">
+  </video>
+  <script>
+    const video = document.getElementById('video');
+    video.onended = () => showModal();
+  </script>
 </body>
 </html>
