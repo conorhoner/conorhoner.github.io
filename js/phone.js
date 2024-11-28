@@ -28,3 +28,18 @@ async function joinSession() {
 }
 
 joinSession();
+
+
+async function notifyMainScreen() {
+  try {
+    const sessionRef = doc(db, "sessions", sessionID);
+    await updateDoc(sessionRef, {
+      status: "connected",
+    });
+    console.log("Session status updated to 'connected'");
+  } catch (e) {
+    console.error("Error updating session status:", e);
+  }
+}
+
+notifyMainScreen();

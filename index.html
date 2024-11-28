@@ -35,7 +35,17 @@
 
     // Generate QR Code
     QRCode.toCanvas(document.getElementById("qrcode"), qrCodeURL, (error) => {
-    if (error) console.error("QR Code generation error:", error);
+      if (error) console.error("QR Code generation error:", error);
+    });
+
+    // Listen for session updates
+    const sessionRef = doc(db, "sessions", sessionID);
+    onSnapshot(sessionRef, (docSnapshot) => {
+      const data = docSnapshot.data();
+      if (data.status === "connected") {
+        console.log("Phone connected. Redirecting to scene1.html...");
+        window.location.href = "scene1.html";
+      }
     });
   </script>
 </head>
