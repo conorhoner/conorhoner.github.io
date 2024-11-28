@@ -1,5 +1,5 @@
 import { db } from "/js/firebase.js";
-import { doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
+import { doc, getDoc } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
 
 // Extract session ID from the URL
 const urlParams = new URLSearchParams(window.location.search);
@@ -27,17 +27,7 @@ async function joinSession() {
   }
 }
 
-async function notifyMainScreen() {
-  try {
-    const sessionRef = doc(db, "sessions", sessionID);
-    await updateDoc(sessionRef, {
-      status: "connected",
-    });
-    console.log("Session status updated to 'connected'");
-  } catch (e) {
-    console.error("Error updating session status:", e);
-  }
-}
+joinSession();
 
-// Join the session and notify the main screen
-joinSession().then(notifyMainScreen);
+// Attach the startMainScreen function to the button
+document.getElementById("startButton").addEventListener("click", startMainScreen);
