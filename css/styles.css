@@ -1,5 +1,8 @@
 body {
-    background-color: #1a1a2e; /* Dark blueish purple */
+    background-image: url('/assets/images/bg.png');
+    background-size: cover; /* This ensures the image covers the whole viewport */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
     color: white;
     font-family: Arial, sans-serif;
     margin: 0;
@@ -20,4 +23,4 @@ h1 {
     padding: 1.5rem;
     background-color: #90e0ef; /* Baby blue */
     border-radius: 10px;
-} 
+}
