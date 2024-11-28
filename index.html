@@ -12,9 +12,11 @@
   <script type="module">
     import { db } from "/js/firebase.js";
     import { doc, setDoc } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
+    import QRCode from "https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js";
 
     const sessionID = Math.random().toString(36).substr(2, 9);
     const qrCodeURL = `https://www.mai-day.com/session.html?sessionID=${sessionID}`;
+    console.log("Generated Session ID:", sessionID);
 
     async function createSession() {
     try {
@@ -35,7 +37,11 @@
 
     // Generate QR Code
     QRCode.toCanvas(document.getElementById("qrcode"), qrCodeURL, (error) => {
-      if (error) console.error("QR Code generation error:", error);
+      if (error) {
+        console.error("Error generating QR Code:", error);
+      } else {
+        console.log("QR Code generated:", qrCodeURL);
+      }
     });
 
     // Listen for session updates
