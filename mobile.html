@@ -5,8 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Film - Mobile Controller</title>
     <link rel="stylesheet" href="mobile-styles.css">
-    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-database.js"></script>
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js'
+        import { getDatabase, ref, set, onValue, update } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js'
+        import { getAuth, signInAnonymously } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js'
+        
+        window.initializeApp = initializeApp;
+        window.getDatabase = getDatabase;
+        window.getAuth = getAuth;
+        window.signInAnonymously = signInAnonymously;
+        window.ref = ref;
+        window.set = set;
+        window.onValue = onValue;
+        window.update = update;
+    </script>
 </head>
 <body>
     <div class="container">
@@ -18,6 +30,6 @@
             <button id="choiceB" class="choice-btn">Choice B</button>
         </div>
     </div>
-    <script src="mobile.js"></script>
+    <script type="module" src="mobile.js"></script>
 </body>
 </html> 

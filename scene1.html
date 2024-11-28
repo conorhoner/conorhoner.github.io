@@ -5,8 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scene 1 - Interactive Film</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-database.js"></script>
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js'
+        import { getDatabase, ref, onValue, update } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js'
+        import { getAuth, signInAnonymously } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js'
+        
+        window.initializeApp = initializeApp;
+        window.getDatabase = getDatabase;
+        window.getAuth = getAuth;
+        window.signInAnonymously = signInAnonymously;
+        window.ref = ref;
+        window.onValue = onValue;
+        window.update = update;
+    </script>
 </head>
 <body>
     <div class="video-container">
@@ -19,6 +30,6 @@
             <p>Check your phone to make a decision!</p>
         </div>
     </div>
-    <script src="scene.js"></script>
+    <script type="module" src="scene.js"></script>
 </body>
 </html>
