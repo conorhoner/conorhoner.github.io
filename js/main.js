@@ -16,12 +16,3 @@ onSnapshot(sessionRef, (docSnapshot) => {
     window.location.href = "scene1.html";
   }
 });
-
-onSnapshot(sessionRef, (doc) => {
-  const data = doc.data();
-  if (data.choice === 'A') {
-    window.location.href = 'scene1A.html';
-  } else if (data.choice === 'B') {
-    window.location.href = 'scene1B.html';
-  }
-});
