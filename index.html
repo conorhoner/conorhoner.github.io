@@ -12,7 +12,6 @@
   <script type="module">
     import { db } from "/js/firebase.js";
     import { doc, setDoc } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
-    import QRCode from "https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js";
 
     const sessionID = Math.random().toString(36).substr(2, 9);
     const qrCodeURL = `https://www.mai-day.com/session.html?sessionID=${sessionID}`;
