@@ -47,6 +47,12 @@
         window.location.href = "scene1.html";
       }
     });
+
+    console.log("Session Ref:", sessionRef);
+    console.log("Attempting to set up listener...");
+    onSnapshot(sessionRef, (docSnapshot) => {
+      console.log("Listener triggered:", docSnapshot.data());
+    });
   </script>
 </head>
 
