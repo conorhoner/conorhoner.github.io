@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Film - Mobile Controller</title>
+    <link rel="stylesheet" href="mobile-styles.css">
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-database.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="waiting-message">
+            <p>Choices will be available when the scene ends...</p>
+        </div>
+        <div id="choices" style="display: none;">
+            <button id="choiceA" class="choice-btn">Choice A</button>
+            <button id="choiceB" class="choice-btn">Choice B</button>
+        </div>
+    </div>
+    <script src="mobile.js"></script>
+</body>
+</html> 

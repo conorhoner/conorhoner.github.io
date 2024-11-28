@@ -1,47 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Film</title>
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-
-  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-  <script type="module" src="/js/firebase.js"></script>
-  <script type="module">
-    import { db } from "/js/firebase.js";
-    import { doc, setDoc } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
-
-    const sessionID = Math.random().toString(36).substr(2, 9);
-    const qrCodeURL = `https://www.mai-day.com/session.html?sessionID=${sessionID}`;
-
-    async function createSession() {
-    try {
-      // Create a new session in Firestore
-      await setDoc(doc(db, "sessions", sessionID), {
-        scene: "scene1",
-        status: "waiting",
-        choicesAvailable: false,
-        choice: null,
-      });
-      console.log("Session created with ID:", sessionID);
-    } catch (e) {
-      console.error("Error creating session:", e);
-    }
-    }
-
-    createSession();
-
-    // Generate QR Code
-    QRCode.toCanvas(document.getElementById("qrcode"), qrCodeURL, (error) => {
-    if (error) console.error("QR Code generation error:", error);
-    });
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Film Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-database.js"></script>
 </head>
-
-
 <body>
-  <h1>Scan to Begin</h1>
-  <canvas id="qrcode"></canvas>
+    <div class="container">
+        <h1>Welcome to the Interactive Film</h1>
+        <div id="qrcode"></div>
+        <p>Scan the QR code with your phone to begin the experience</p>
+        <p id="sessionId" style="display: none;"></p>
+    </div>
+    <script src="app.js"></script>
 </body>
 </html>

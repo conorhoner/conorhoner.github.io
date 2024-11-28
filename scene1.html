@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scene 1</title>
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-
-  <script src="/js/firebase.js"></script>
-  <script src="/js/main.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scene 1 - Interactive Film</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-database.js"></script>
 </head>
 <body>
-  <video id="video" autoplay>
-    <source src="/assets/videos/scene1.mp4" type="video/mp4">
-  </video>
-  <script>
-    const video = document.getElementById('video');
-    video.onended = () => showModal();
-  </script>
+    <div class="video-container">
+        <video id="sceneVideo" src="path/to/scene1-video.mp4"></video>
+    </div>
+    
+    <div id="choiceModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2>Make Your Choice</h2>
+            <p>Check your phone to make a decision!</p>
+        </div>
+    </div>
+    <script src="scene.js"></script>
 </body>
 </html>

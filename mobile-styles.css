@@ -1,0 +1,26 @@
+.container {
+    padding: 20px;
+    text-align: center;
+}
+
+.choice-btn {
+    display: block;
+    width: 80%;
+    margin: 20px auto;
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.choice-btn:hover {
+    background-color: #0056b3;
+}
+
+#waiting-message {
+    font-size: 18px;
+    color: #666;
+} 
