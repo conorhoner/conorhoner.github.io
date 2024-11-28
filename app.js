@@ -1,11 +1,17 @@
 // Firebase configuration
 const firebaseConfig = {
     // Your Firebase config here
+    // apiKey: "your-api-key",
+    // authDomain: "your-auth-domain",
+    // projectId: "your-project-id",
+    // storageBucket: "your-storage-bucket",
+    // messagingSenderId: "your-messaging-sender-id",
+    // appId: "your-app-id"
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
+const app = window.initializeApp(firebaseConfig);
+const database = window.getDatabase(app);
 
 // Generate a unique session ID
 function generateSessionId() {
@@ -16,32 +22,48 @@ function generateSessionId() {
 // Create new session and QR code
 async function initializeSession() {
     const sessionId = generateSessionId();
-    const sessionRef = database.ref(`sessions/${sessionId}`);
+    const sessionRef = ref(database, `sessions/${sessionId}`);
     
-    // Initialize session data
-    await sessionRef.set({
-        status: 'waiting',
-        currentScene: 'start',
-        phoneConnected: false,
-        choices: {
-            enabled: false,
-            selected: null
-        }
-    });
+    try {
+        // Initialize session data
+        await set(sessionRef, {
+            status: 'waiting',
+            currentScene: 'start',
+            phoneConnected: false,
+            choices: {
+                enabled: false,
+                selected: null
+            }
+        });
 
-    // Generate QR code
-    const qrUrl = `${window.location.origin}/mobile.html?session=${sessionId}`;
-    new QRCode(document.getElementById("qrcode"), qrUrl);
-    
-    // Store session ID in page
-    document.getElementById("sessionId").textContent = sessionId;
+        // Generate QR code with error handling
+        const qrElement = document.getElementById("qrcode");
+        qrElement.innerHTML = ''; // Clear any existing QR code
+        
+        const qrUrl = `${window.location.origin}/mobile.html?session=${sessionId}`;
+        new QRCode(qrElement, {
+            text: qrUrl,
+            width: 256,
+            height: 256,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+        
+        // Store session ID in page
+        document.getElementById("sessionId").textContent = sessionId;
 
-    // Listen for phone connection
-    sessionRef.child('phoneConnected').on('value', (snapshot) => {
-        if (snapshot.val() === true) {
-            window.location.href = `/scene1.html?session=${sessionId}`;
-        }
-    });
+        // Listen for phone connection
+        onValue(ref(database, `sessions/${sessionId}/phoneConnected`), (snapshot) => {
+            if (snapshot.val() === true) {
+                window.location.href = `/scene1.html?session=${sessionId}`;
+            }
+        });
+
+    } catch (error) {
+        console.error("Error initializing session:", error);
+        alert("Error creating session. Please try refreshing the page.");
+    }
 }
 
 // Initialize when page loads
