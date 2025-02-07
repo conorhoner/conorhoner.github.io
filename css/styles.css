@@ -27,7 +27,7 @@ h1 {
 			padding: 15px 50px;
 			cursor: pointer
 		}
-		button:hover {
+		.startbutton:hover {
 			color: #00e3fe;
 			background-color: #ffffff;
 		}
