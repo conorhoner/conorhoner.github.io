@@ -15,7 +15,7 @@ body {
 }
 
 h1 {
-    margin-bottom: 2rem;
+    margin; auto;
     font-size: 2.5rem;
 }
 
@@ -35,9 +35,3 @@ h1 {
 			color: #00e3fe;
 			background-color: #ffffff;
 		}
-
-#qrcode {
-    padding: 1.5rem;
-    background-color: #90e0ef; /* Baby blue */
-    border-radius: 10px;
-}
