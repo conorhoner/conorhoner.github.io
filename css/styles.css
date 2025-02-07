@@ -25,7 +25,8 @@ h1 {
 			font-size: 19px;
 			border-radius: 20px;
 			padding: 15px 50px;
-			cursor: pointer
+			cursor: pointer;
+      align-items: center;
 		}
 		.startbutton:hover {
 			color: #00e3fe;
