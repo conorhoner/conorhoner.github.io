@@ -3,21 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scene 1</title>
+  <title>REMOTE</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
-
-  <script src="/js/firebase.js"></script>
-  <script src="/js/main.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
-  <video id="video" autoplay controls>
-    <source src="/assets/videos/scene1.mp4" type="video/mp4">
-  </video>
-  <script>
-    const video = document.getElementById('video');
-    video.onended = () => showModal();
-  </script>
+  <div class="container">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/sZW5jySoFTM?si=Qabdod9wB3cFz70h" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
 </body>
 </html>
