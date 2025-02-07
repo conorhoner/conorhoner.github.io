@@ -3,67 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Film</title>
+  <title>REMOTE</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="/css/styles.css">
-
-  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-  <script type="module" src="/js/firebase.js"></script>
-  <script type="module">
-    import { db } from "/js/firebase.js";
-    import { doc, setDoc } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
-
-    const sessionID = Math.random().toString(36).substr(2, 9);
-    const qrCodeURL = `https://www.mai-day.com/session.html?sessionID=${sessionID}`;
-    console.log("Generated Session ID:", sessionID);
-
-    async function createSession() {
-    try {
-      // Create a new session in Firestore
-      await setDoc(doc(db, "sessions", sessionID), {
-        scene: "scene1",
-        status: "waiting",
-        choicesAvailable: false,
-        choice: null,
-      });
-      console.log("Session created with ID:", sessionID);
-    } catch (e) {
-      console.error("Error creating session:", e);
-    }
-    }
-
-    createSession();
-
-    // Generate QR Code
-    QRCode.toCanvas(document.getElementById("qrcode"), qrCodeURL, (error) => {
-      if (error) {
-        console.error("Error generating QR Code:", error);
-      } else {
-        console.log("QR Code generated:", qrCodeURL);
-      }
-    });
-
-    // Listen for session updates
-    const sessionRef = doc(db, "sessions", sessionID);
-    onSnapshot(sessionRef, (docSnapshot) => {
-      const data = docSnapshot.data();
-      if (data.status === "connected") {
-        console.log("Phone connected. Redirecting to scene1.html...");
-        window.location.href = "scene1.html";
-      }
-    });
-
-    console.log("Session Ref:", sessionRef);
-    console.log("Attempting to set up listener...");
-    onSnapshot(sessionRef, (docSnapshot) => {
-      console.log("Listener triggered:", docSnapshot.data());
-    });
-  </script>
 </head>
 
-
 <body>
-  <h1>Scan to Begin</h1>
-  <canvas id="qrcode"></canvas>
+  <div class="container">
+    <h1>Welcome to REMOTE</h1>
+    <button type="button" name="START">START</button>
+  </div>
 </body>
 </html>

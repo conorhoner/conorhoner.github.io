@@ -19,6 +19,19 @@ h1 {
     font-size: 2.5rem;
 }
 
+button {
+			color: #ffffff;
+			background-color: #01e3fe;
+			font-size: 19px;
+			border-radius: 20px;
+			padding: 15px 50px;
+			cursor: pointer
+		}
+		button:hover {
+			color: #00e3fe;
+			background-color: #ffffff;
+		}
+
 #qrcode {
     padding: 1.5rem;
     background-color: #90e0ef; /* Baby blue */
