@@ -1,17 +1,18 @@
 body {
     background-image: url('/assets/images/bg.png');
-    background-size: cover; /* This ensures the image covers the whole viewport */
-    background-position: center; /* Centers the background image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: white;
     font-family: Arial, sans-serif;
-    display: block;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    text-align: center;
 }
 
 h1 {
