@@ -23,6 +23,7 @@ h1 {
 			color: #ffffff;
 			background-color: #01e3fe;
 			font-size: 19px;
+      border: none;
 			border-radius: 20px;
 			padding: 15px 50px;
 			cursor: pointer;
