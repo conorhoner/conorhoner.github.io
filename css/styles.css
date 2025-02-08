@@ -61,14 +61,14 @@ h1 {
     	background-color: #ffffff;
     }
 
-    .video-container {
+    .videoplayer {
       position: relative;
       width: 80%;  /* Adjusts width to 80% of the screen */
       max-width: 800px; /* Keeps max size for larger screens */
       margin: 0 auto; /* Centers the video */
     }
 
-  .video-container iframe {
+  .videoplayer iframe {
       width: 100%;  /* Makes the video scale within the container */
       height: auto;
       aspect-ratio: 16 / 9; /* Ensures the correct video aspect ratio */
