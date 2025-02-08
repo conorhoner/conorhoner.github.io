@@ -61,8 +61,8 @@ h1 {
   	background-color: #ffffff;
   }
 
-  .videoplayer {
-      position: relative;
-      width: 100%; /* Default width for all screens */
-      margin: 0 auto; /* Centering */
+.videoplayer {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
   }
