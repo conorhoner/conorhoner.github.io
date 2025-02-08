@@ -70,27 +70,33 @@ h1 {
 
   .videoplayer {
       position: relative;
-      width: 80%; /* Default width */
-      max-width: 1200px; /* Ensures it doesn't get too large */
-      margin: 0 auto; /* Centers the video */
-      aspect-ratio: 16 / 9; /* Ensures correct video proportions */
+      width: 80%;  /* Default width: 80% of screen */
+      max-width: 1200px; /* Ensures the video doesn't get too large */
+      margin: 0 auto; /* Center the video */
+      padding-bottom: 45%; /* Forces 16:9 aspect ratio */
+      height: 0; /* Important: Makes sure height is controlled by padding */
   }
 
   .videoplayer iframe {
-      width: 100%;
-      height: 100%; /* Ensures height follows the aspect ratio */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%; /* Makes sure video fills the container */
+      height: 100%; /* Adjusts height based on container */
   }
 
-  /* Ensure the video scales properly on larger screens */
+  /* Increase size for larger screens */
   @media (min-width: 1024px) {
       .videoplayer {
-          width: 90%; /* Increases width for large screens */
+          width: 90%; /* Make video wider */
+          padding-bottom: 40%; /* Adjust aspect ratio */
       }
   }
 
-  /* Ensure responsiveness for smaller screens */
+  /* Make video take up more space on smaller screens */
   @media (max-width: 768px) {
       .videoplayer {
-          width: 95%; /* Makes video take more space */
+          width: 95%;
+          padding-bottom: 56.25%; /* Standard 16:9 ratio for mobile */
       }
   }
