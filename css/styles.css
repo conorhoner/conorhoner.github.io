@@ -61,30 +61,39 @@ h1 {
   	background-color: #ffffff;
   }
 
-.videoplayer {
-    position: relative;
-    width: 80%; /* Default width */
-    max-width: 1000px; /* Ensures video doesn’t get too large */
-    margin: 0 auto; /* Centers the video */
+  .videoplayer {
+      position: relative;
+      width: 80%; /* Default width for all screens */
+      max-width: 1200px; /* Max size for large screens */
+      margin: 0 auto; /* Centering */
   }
 
-.videoplayer iframe {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9; /* Maintains correct video proportions */
+  .videoplayer iframe {
+      width: 100%;
+      height: 500px; /* Default height for larger screens */
   }
 
-  /* For large screens (laptops/desktops) */
-@media (min-width: 1024px) {
-    .videoplayer {
-        width: 90%; /* Increase size on larger screens */
-        max-width: 1200px; /* Keep a reasonable max size */
+  /* Adjust for extra-large screens */
+  @media (min-width: 1400px) {
+      .videoplayer iframe {
+          height: 600px; /* Make it even bigger on very large screens */
       }
   }
 
-  /* Ensure responsiveness for smaller screens */
-@media (max-width: 768px) {
-    .videoplayer {
-        width: 95%; /* Make video take most of the screen on mobile */
+  /* Adjust for medium-sized screens like tablets */
+  @media (max-width: 1024px) {
+      .videoplayer iframe {
+          height: 400px; /* Slightly smaller for tablets */
+      }
+  }
+
+  /* Adjust for mobile screens */
+  @media (max-width: 768px) {
+      .videoplayer {
+          width: 95%;
+      }
+      .videoplayer iframe {
+          height: auto; /* Let the aspect ratio handle height */
+          aspect-ratio: 16 / 9;
       }
   }
