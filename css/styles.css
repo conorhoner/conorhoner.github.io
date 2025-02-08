@@ -15,6 +15,7 @@ body {
     text-align: center;
 }
 
+
 h1 {
     text-align: center;
     margin-bottom: 2rem;
@@ -22,66 +23,85 @@ h1 {
 }
 
 .startbutton {
-    color: #ffffff;
-    background-color: #01e3fe;
-    display: block;
-    margin: 0 auto;
-    font-size: 19px;
-    border: none;
-    outline: none;
-    border-radius: 20px;
-    padding: 15px 50px;
-    cursor: pointer;
-}
+			color: #ffffff;
+			background-color: #01e3fe;
+      display: block;
+      margin: 0 auto;
+			font-size: 19px;
+      border: none;
+      outline: none;
+			border-radius: 20px;
+			padding: 15px 50px;
+			cursor: pointer;
+		}
 
 .startbutton:hover {
-    color: #00e3fe;
-    background-color: #ffffff;
-}
+		color: #00e3fe;
+		background-color: #ffffff;
+	}
 
 .backbutton {
-    color: #ffffff;
-    background-color: #01e3fe;
+		color: #ffffff;
+		background-color: #01e3fe;
     display: block;
     margin-top: 50px;
+    display: block;
     margin-left: auto;
     margin-right: auto;
-    font-size: 19px;
+  	font-size: 19px;
     border: none;
     outline: none;
-    border-radius: 20px;
-    padding: 15px 50px;
-    cursor: pointer;
-}
+  	border-radius: 20px;
+  	padding: 15px 50px;
+  	cursor: pointer;
+	}
 
 .backbutton:hover {
-    color: #00e3fe;
-    background-color: #ffffff;
-}
+  	color: #00e3fe;
+  	background-color: #ffffff;
+  }
 
-.videoplayer {
-    position: relative;
-    width: 80%;
-    max-width: 1200px;
-    margin: 20px auto;
-}
+  .videoplayer {
+      position: relative;
+      width: 80%; /* Default width for all screens */
+      max-width: 1200px; /* Max size for large screens */
+      margin: 0 auto; /* Centering */
+  }
 
-.videoplayer iframe {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-}
+  .videoplayer {
+      position: relative;
+      width: 80%; /* Default width on desktops */
+      max-width: 1400px; /* Ensures video doesn't get too large */
+      margin: 20px auto;
+      height: 500px; /* Force a larger height */
+  }
 
-/* Improve layout on large screens */
-@media (min-width: 1024px) {
-    .videoplayer {
-        width: 90%;
-    }
-}
+  .videoplayer iframe {
+      width: 100%;
+      height: 100%; /* Ensures iframe fills the container */
+  }
 
-/* Make video larger on smaller screens */
-@media (max-width: 768px) {
-    .videoplayer {
-        width: 95%;
-    }
-}
+  /* Improve layout on extra-large screens */
+  @media (min-width: 1400px) {
+      .videoplayer {
+          width: 85%;
+          height: 600px; /* Make it even bigger */
+      }
+  }
+
+  /* Adjust for laptops */
+  @media (min-width: 1024px) and (max-width: 1400px) {
+      .videoplayer {
+          width: 90%;
+          height: 550px;
+      }
+  }
+
+  /* Make video larger on smaller screens */
+  @media (max-width: 768px) {
+      .videoplayer {
+          width: 95%;
+          height: auto; /* Allow mobile resizing */
+          aspect-ratio: 16 / 9;
+      }
+  }
