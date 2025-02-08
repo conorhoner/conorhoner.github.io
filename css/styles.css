@@ -63,7 +63,7 @@ h1 {
 
     .videoplayer {
       position: relative;
-      width: 80%;  /* Adjusts width to 80% of the screen */
+      width: 100%;  /* Adjusts width to 80% of the screen */
       max-width: 800px; /* Keeps max size for larger screens */
       margin: 0 auto; /* Centers the video */
     }
