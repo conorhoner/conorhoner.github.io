@@ -60,16 +60,3 @@ h1 {
   	color: #00e3fe;
   	background-color: #ffffff;
   }
-
-@media (min-width: 1024px) {
-    .videoplayer {
-        width: 100%;
-        max-width: 1200px;
-      }
-  }
-
-@media (max-width: 768px) {
-    .videoplayer {
-        width: 90%;
-      }
-  }
