@@ -61,19 +61,6 @@ h1 {
   	background-color: #ffffff;
   }
 
-.videoplayer {
-    position: relative;
-    width: 80%; /* Default to 80% of the screen width */
-    max-width: 1000px; /* Ensures it doesn't get too large */
-    margin: 0 auto; /* Centers it */
-  }
-
-.videoplayer iframe {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-  }
-
 @media (min-width: 1024px) {
     .videoplayer {
         width: 100%;
