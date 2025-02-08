@@ -85,33 +85,3 @@ h1 {
       max-width: 1200px; /* Ensures video doesn't get too large */
       margin: 20px auto;
   }
-
-  /* Wrapper to enforce aspect ratio */
-  .video-wrapper {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%; /* Maintains 16:9 ratio (height = 56.25% of width) */
-  }
-
-  /* Corrected iframe behavior */
-  .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-  }
-
-  /* Improve layout on large screens */
-  @media (min-width: 1400px) {
-      .videoplayer {
-          width: 85%;
-      }
-  }
-
-  /* Make video larger on smaller screens */
-  @media (max-width: 768px) {
-      .videoplayer {
-          width: 95%;
-      }
-  }
