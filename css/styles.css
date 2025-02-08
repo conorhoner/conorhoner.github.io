@@ -60,3 +60,31 @@ h1 {
   	color: #00e3fe;
   	background-color: #ffffff;
   }
+
+.videoplayer {
+    position: relative;
+    width: 80%; /* Default width */
+    max-width: 1000px; /* Ensures video doesn’t get too large */
+    margin: 0 auto; /* Centers the video */
+  }
+
+.videoplayer iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9; /* Maintains correct video proportions */
+  }
+
+  /* For large screens (laptops/desktops) */
+@media (min-width: 1024px) {
+    .videoplayer {
+        width: 90%; /* Increase size on larger screens */
+        max-width: 1200px; /* Keep a reasonable max size */
+      }
+  }
+
+  /* Ensure responsiveness for smaller screens */
+@media (max-width: 768px) {
+    .videoplayer {
+        width: 95%; /* Make video take most of the screen on mobile */
+      }
+  }
