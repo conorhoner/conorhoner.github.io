@@ -68,32 +68,29 @@ h1 {
       margin: 0 auto; /* Centering */
   }
 
+  .videoplayer {
+      position: relative;
+      width: 80%; /* Default width */
+      max-width: 1200px; /* Ensures it doesn't get too large */
+      margin: 0 auto; /* Centers the video */
+      aspect-ratio: 16 / 9; /* Ensures correct video proportions */
+  }
+
   .videoplayer iframe {
       width: 100%;
-      height: 500px; /* Default height for larger screens */
+      height: 100%; /* Ensures height follows the aspect ratio */
   }
 
-  /* Adjust for extra-large screens */
-  @media (min-width: 1400px) {
-      .videoplayer iframe {
-          height: 600px; /* Make it even bigger on very large screens */
+  /* Ensure the video scales properly on larger screens */
+  @media (min-width: 1024px) {
+      .videoplayer {
+          width: 90%; /* Increases width for large screens */
       }
   }
 
-  /* Adjust for medium-sized screens like tablets */
-  @media (max-width: 1024px) {
-      .videoplayer iframe {
-          width: 100%; /* Slightly smaller for tablets */
-      }
-  }
-
-  /* Adjust for mobile screens */
+  /* Ensure responsiveness for smaller screens */
   @media (max-width: 768px) {
       .videoplayer {
-          width: 95%;
-      }
-      .videoplayer iframe {
-          height: auto; /* Let the aspect ratio handle height */
-          aspect-ratio: 16 / 9;
+          width: 95%; /* Makes video take more space */
       }
   }
