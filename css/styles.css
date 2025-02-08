@@ -63,25 +63,6 @@ h1 {
 
   .videoplayer {
       position: relative;
-      width: 80%; /* Default width for all screens */
-      max-width: 1200px; /* Max size for large screens */
+      width: 100%; /* Default width for all screens */
       margin: 0 auto; /* Centering */
-  }
-
-  .videoplayer {
-      position: relative;
-      width: 80%; /* Default width on desktops */
-      max-width: 1400px; /* Ensures video doesn't get too large */
-      margin: 20px auto;
-      height: 500px; /* Force a larger height */
-  }
-
-  /* Video Player - Responsive 16:9 */
-  .videoplayer {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 80%; /* Default width on desktops */
-      max-width: 1200px; /* Ensures video doesn't get too large */
-      margin: 20px auto;
   }
