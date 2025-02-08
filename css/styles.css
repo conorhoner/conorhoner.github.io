@@ -56,20 +56,26 @@ h1 {
   	cursor: pointer;
 	}
 
-  .backbutton:hover {
-    	color: #00e3fe;
-    	background-color: #ffffff;
-    }
+.backbutton:hover {
+  	color: #00e3fe;
+  	background-color: #ffffff;
+  }
 
-    .videoplayer {
-      position: relative;
-      width: 100%;  /* Adjusts width to 80% of the screen */
-      max-width: 800px; /* Keeps max size for larger screens */
-      margin: 0 auto; /* Centers the video */
-    }
+.videoplayer {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
 
-  .videoplayer iframe {
-      width: 100%;  /* Makes the video scale within the container */
-      height: auto;
-      aspect-ratio: 16 / 9; /* Ensures the correct video aspect ratio */
+.videoplayer iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+@media (max-width: 768px) {
+    .video-container {
+        width: 90%; /* Makes video take more space on smaller screens */
     }
+  }
