@@ -63,9 +63,9 @@ h1 {
 
 .videoplayer {
     position: relative;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
+    width: 80%; /* Default to 80% of the screen width */
+    max-width: 1000px; /* Ensures it doesn't get too large */
+    margin: 0 auto; /* Centers it */
   }
 
 .videoplayer iframe {
@@ -74,8 +74,15 @@ h1 {
     aspect-ratio: 16 / 9;
   }
 
+@media (min-width: 1024px) {
+    .videoplayer {
+        width: 100%;
+        max-width: 1200px;
+      }
+  }
+
 @media (max-width: 768px) {
-    .video-container {
-        width: 90%; /* Makes video take more space on smaller screens */
-    }
+    .videoplayer {
+        width: 90%;
+      }
   }
