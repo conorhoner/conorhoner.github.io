@@ -83,7 +83,7 @@ h1 {
   /* Adjust for medium-sized screens like tablets */
   @media (max-width: 1024px) {
       .videoplayer iframe {
-          height: 400px; /* Slightly smaller for tablets */
+          width: 100%; /* Slightly smaller for tablets */
       }
   }
 
