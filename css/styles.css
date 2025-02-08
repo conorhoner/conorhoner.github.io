@@ -15,7 +15,6 @@ body {
     text-align: center;
 }
 
-
 h1 {
     text-align: center;
     margin-bottom: 2rem;
@@ -23,80 +22,66 @@ h1 {
 }
 
 .startbutton {
-			color: #ffffff;
-			background-color: #01e3fe;
-      display: block;
-      margin: 0 auto;
-			font-size: 19px;
-      border: none;
-      outline: none;
-			border-radius: 20px;
-			padding: 15px 50px;
-			cursor: pointer;
-		}
-
-.startbutton:hover {
-		color: #00e3fe;
-		background-color: #ffffff;
-	}
-
-.backbutton {
-		color: #ffffff;
-		background-color: #01e3fe;
+    color: #ffffff;
+    background-color: #01e3fe;
     display: block;
-    margin-top: 50px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  	font-size: 19px;
+    margin: 0 auto;
+    font-size: 19px;
     border: none;
     outline: none;
-  	border-radius: 20px;
-  	padding: 15px 50px;
-  	cursor: pointer;
-	}
+    border-radius: 20px;
+    padding: 15px 50px;
+    cursor: pointer;
+}
+
+.startbutton:hover {
+    color: #00e3fe;
+    background-color: #ffffff;
+}
+
+.backbutton {
+    color: #ffffff;
+    background-color: #01e3fe;
+    display: block;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 19px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    padding: 15px 50px;
+    cursor: pointer;
+}
 
 .backbutton:hover {
-  	color: #00e3fe;
-  	background-color: #ffffff;
-  }
+    color: #00e3fe;
+    background-color: #ffffff;
+}
 
-  .videoplayer {
-      position: relative;
-      width: 80%; /* Default width for all screens */
-      max-width: 1200px; /* Max size for large screens */
-      margin: 0 auto; /* Centering */
-  }
+.videoplayer {
+    position: relative;
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
 
-  .videoplayer {
-      position: relative;
-      width: 80%;  /* Default width: 80% of screen */
-      max-width: 1200px; /* Ensures the video doesn't get too large */
-      margin: 0 auto; /* Center the video */
-      padding-bottom: 45%; /* Forces 16:9 aspect ratio */
-      height: 0; /* Important: Makes sure height is controlled by padding */
-  }
+.videoplayer iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+}
 
-  .videoplayer iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%; /* Makes sure video fills the container */
-      height: 100%; /* Adjusts height based on container */
-  }
+/* Improve layout on large screens */
+@media (min-width: 1024px) {
+    .videoplayer {
+        width: 90%;
+    }
+}
 
-  /* Increase size for larger screens */
-  @media (min-width: 1024px) {
-      .videoplayer {
-          width: 90%; /* Make video wider */
-          padding-bottom: 40%; /* Adjust aspect ratio */
-      }
-  }
-
-  /* Make video take up more space on smaller screens */
-  @media (max-width: 768px) {
-      .videoplayer {
-          width: 95%;
-          padding-bottom: 56.25%; /* Standard 16:9 ratio for mobile */
-      }
-  }
+/* Make video larger on smaller screens */
+@media (max-width: 768px) {
+    .videoplayer {
+        width: 95%;
+    }
+}
