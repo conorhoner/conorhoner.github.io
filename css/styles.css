@@ -84,7 +84,6 @@ h1 {
 .maibg {
   opacity: 0;
   animation: fadeIn 1.5s ease-out forwards;
-  animation-delay: 0.5s;
   position: absolute;
   top: 50%;
   left: 50%;
