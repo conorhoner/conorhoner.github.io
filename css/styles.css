@@ -32,26 +32,48 @@ h1 {
   font-size:17px;
   padding:16px 31px;
   text-decoration:none;
-		}
+}
 
 .startbutton:hover {
-		color: #01e5fe;
-		background-color: #ffffff;
-	}
+	color: #01e5fe;
+	background-color: #ffffff;
+}
+
+.container {
+  position: relative;
+  z-index: 2; /* Ensures text & buttons are above */
+}
+
+.container h1,
+.container .startbutton {
+  position: relative; /* Ensures they stay on top */
+  z-index: 3;
+}
+
+.maibg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.7;
+}
 
 .backbutton {
-		color: #ffffff;
-		background-color:#01e5fe;
-    border:2px solid #01e5fe;
-    display: block;
-    margin-top: 50px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  	font-size: 19px;
-  	padding: 15px 50px;
-  	cursor: pointer;
-	}
+	color: #ffffff;
+	background-color:#01e5fe;
+  border:2px solid #01e5fe;
+  display: block;
+  margin-top: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+	font-size: 19px;
+	padding: 15px 50px;
+	cursor: pointer;
+}
 
 .backbutton:hover {
   	color: #01e5fe;
