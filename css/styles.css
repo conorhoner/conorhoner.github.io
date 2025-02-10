@@ -24,14 +24,13 @@ h1 {
 
 .startbutton {
 			color: #ffffff;
-			background: none;
+			background: transparent;
+      background-repeat: no-repeat;
       display: block;
       margin: 0 auto;
 			font-size: 19px;
       border: 5px;
       border-color: #01e3fe;
-      outline: none;
-			border-radius: 20px;
 			padding: 15px 50px;
 			cursor: pointer;
 		}
