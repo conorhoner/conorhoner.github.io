@@ -24,7 +24,7 @@ h1 {
 
 .startbutton {
   animation: fadeIn 1.5s ease-out forwards;
-  animation-delay: 1s;
+  animation-delay: 1.5s;
   background-color:#01e5fe;
   border:2px solid #01e5fe;
   display:inline-block;
@@ -49,7 +49,7 @@ h1 {
 }
 
 .container h1 {
-  animation-delay: 0.6s;
+  animation-delay: 1s;
 }
 
 .container h1,
