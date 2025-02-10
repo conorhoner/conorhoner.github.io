@@ -41,22 +41,21 @@ h1 {
 
 .backbutton {
 		color: #ffffff;
-		background-color: #01e3fe;
+		background-color:#01e5fe;
+    border:2px solid #01e5fe;
     display: block;
     margin-top: 50px;
     display: block;
     margin-left: auto;
     margin-right: auto;
   	font-size: 19px;
-    border: none;
-    outline: none;
   	border-radius: 20px;
   	padding: 15px 50px;
   	cursor: pointer;
 	}
 
 .backbutton:hover {
-  	color: #00e3fe;
+  	color: #01e5fe;
   	background-color: #ffffff;
   }
 
