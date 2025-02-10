@@ -23,6 +23,7 @@ h1 {
 }
 
 .startbutton {
+  animation: fadeIn 1.5s ease-out forwards;
   animation-delay: 0.5s;
   background-color:#01e5fe;
   border:2px solid #01e5fe;
