@@ -23,20 +23,19 @@ h1 {
 }
 
 .startbutton {
-			color: #ffffff;
-			background: transparent;
-      background-repeat: no-repeat;
-      display: block;
-      margin: 0 auto;
-			font-size: 19px;
-      border: 5px;
-      border-color: #01e3fe;
-			padding: 15px 50px;
-			cursor: pointer;
+  background-color:#01e5fe;
+  border:2px solid #01e5fe;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:17px;
+  padding:16px 31px;
+  text-decoration:none;
 		}
 
 .startbutton:hover {
-		color: #00e3fe;
+		color: #01e5fe;
 		background-color: #ffffff;
 	}
 
