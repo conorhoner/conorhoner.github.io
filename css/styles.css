@@ -22,6 +22,27 @@ h1 {
     font-size: 2.5rem;
 }
 
+.corner-buttons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.corner-buttons button {
+  background-color: transparent;
+  border: 1px solid #01e5fe;
+  color: #ffffff;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.corner-buttons button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 .startbutton {
   animation: fadeIn 1.5s ease-out forwards;
   animation-delay: 1.5s;
@@ -125,26 +146,4 @@ h1 {
       width: 20%;
       height: 20%;
     }
-  }
-
-
-  .corner-buttons {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    display: flex;
-    gap: 10px;
-  }
-
-  .corner-buttons button {
-    background-color: transparent;
-    border: 1px solid #01e5fe;
-    color: #ffffff;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-
-  .corner-buttons button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
   }
