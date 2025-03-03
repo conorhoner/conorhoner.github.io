@@ -24,15 +24,15 @@ h1 {
 
 .corner-buttons {
   position: absolute;
-  top: 25px;
-  right: 25px;
+  top: 30px;
+  right: 30px;
   display: flex;
   gap: 10px;
 }
 
 .corner-buttons button {
   background-color: transparent;
-  border: 1px solid #01e5fe;
+  border: 2px solid #01e5fe;
   color: #ffffff;
   padding: 5px 10px;
   cursor: pointer;
