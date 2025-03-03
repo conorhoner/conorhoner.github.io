@@ -24,8 +24,8 @@ h1 {
 
 .corner-buttons {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 25px;
+  right: 25px;
   display: flex;
   gap: 10px;
 }
