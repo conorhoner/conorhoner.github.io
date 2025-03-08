@@ -75,10 +75,10 @@ h1 {
 
 .container h1,
 .container .startbutton .background-image {
-  position: relative; /* Ensures they stay on top */
+  position: relative;
   z-index: 3;
   opacity: 0;
-  transform: translateY(20px); /* Slight downward offset */
+  transform: translateY(20px);
   animation: fadeInUp 0.8s ease-out forwards;
 }
 
@@ -117,6 +117,11 @@ h1 {
 }
 
 .backbutton {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 1s;
+
 	color: #ffffff;
 	background-color:#01e5fe;
   border:2px solid #01e5fe;
@@ -150,7 +155,7 @@ h1 {
 
 .content {
   opacity: 0;
-  transform: translateY(20px); /* Slight downward offset */
+  transform: translateY(20px);
   animation: fadeInUp 0.8s ease-out forwards;
   animation-delay: 1s;
 }
