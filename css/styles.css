@@ -168,9 +168,9 @@ h1 {
 }
 
 .hyperlinks:hover {
+  transform: scale(1.2);
   color: #01e5fe;
   text-decoration: underline;
   transition: all 500ms;
-  font-size-adjust: 20px;
 
 }
