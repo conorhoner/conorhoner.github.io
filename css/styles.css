@@ -170,4 +170,7 @@ h1 {
 .hyperlinks:hover {
   color: #01e5fe;
   text-decoration: underline;
+  transition: all 500ms;
+  font-size-adjust: 20px;
+
 }
