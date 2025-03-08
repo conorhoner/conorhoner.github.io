@@ -160,6 +160,9 @@ h1 {
   animation-delay: 1s;
 }
 
+.aboutinfo {
+  margin: auto;
+}
 
 .hyperlinks {
   color: white;
