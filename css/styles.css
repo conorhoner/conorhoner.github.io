@@ -159,3 +159,15 @@ h1 {
   animation: fadeInUp 0.8s ease-out forwards;
   animation-delay: 1s;
 }
+
+
+.hyperlinks {
+  color: white;
+  text-decoration: none;
+  display: inline;
+}
+
+.hyperlinks:hover {
+  color: #01e5fe;
+  text-decoration: underline;
+}
