@@ -146,13 +146,6 @@ h1 {
     margin: 0 auto;
   }
 
-  @media screen and (max-width: 400px) {
-    .videoplayer {
-      width: 20%;
-      height: 20%;
-    }
-  }
-
 .content {
   opacity: 0;
   transform: translateY(20px);
