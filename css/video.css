@@ -1,46 +1,68 @@
+
 body {
-    background-image: url('/assets/images/bg.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: white;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    text-align: center;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('/assets/images/bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
 }
 
-
-h1 {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2.5rem;
-}
-
-.container {
-  position: relative;
-  z-index: 3;
+.wrapper {
   width: 100%;
-  padding: 1rem;
+  padding: 2rem 1rem;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
 }
 
-.container h1 {
-  animation-delay: 1s;
-}
-
-.container h1,
-.container .startbutton .background-image {
-  position: relative;
-  z-index: 3;
+.video-container {
+  width: 100%;
+  max-width: 800px;
+  animation: fadeInUp 1s ease-out forwards;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  margin-bottom: 1.5rem;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.backbutton {
+  color: #ffffff;
+  background-color: #01e5fe;
+  border: 2px solid #01e5fe;
+  font-size: 1rem;
+  padding: 12px 40px;
+  cursor: pointer;
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.backbutton:hover {
+  color: #01e5fe;
+  background-color: #ffffff;
 }
 
 @keyframes fadeInUp {
@@ -54,86 +76,12 @@ h1 {
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.backbutton {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease-out forwards;
-  animation-delay: 1s;
-
-	color: #ffffff;
-	background-color:#01e5fe;
-  border:2px solid #01e5fe;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-	font-size: 19px;
-	padding: 15px 50px;
-	cursor: pointer;
-}
-
-.backbutton:hover {
-  	color: #01e5fe;
-  	background-color: #ffffff;
-  }
-
-.videoplayer {
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-  }
-
-.content {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease-out forwards;
-  animation-delay: 1s;
-}
-
-.hyperlinks {
-  color: white;
-  text-decoration: none;
-  display: inline;
-}
-
-.hyperlinks:hover {
-  transform: scale(1.2);
-  color: #01e5fe;
-  text-decoration: underline;
-}
-
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    height: auto;
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
-    }
+  .video-container {
+    max-width: 100%;
+  }
 
-    .video-wrapper {
-        padding-bottom: 56.25%;
-    }
+  .backbutton {
+    width: 100%;
+  }
 }
