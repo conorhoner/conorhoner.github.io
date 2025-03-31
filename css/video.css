@@ -81,3 +81,21 @@ body {
     max-width: 100%;
   }
 }
+
+.logo {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 0 auto 1.5rem auto;
+  display: block;
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@media (max-width: 768px) {
+  .logo {
+    max-width: 70%;
+  }
+}
