@@ -31,7 +31,7 @@ h1 {
   gap: 10px;
   opacity: 0;
   animation: fadeIn 1.5s ease-out forwards;
-  animation-delay: 1s;
+  animation-delay: 1.5s;
 }
 
 .corner-buttons button {
