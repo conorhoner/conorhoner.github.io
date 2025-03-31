@@ -1,5 +1,9 @@
 
 html, body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0;
   padding: 0;
   min-height: 100%;
@@ -7,6 +11,10 @@ html, body {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-image: url('/assets/images/bg.png');
   background-size: cover;
   background-position: center;
@@ -22,6 +30,47 @@ h1 {
   font-size: 2.5rem;
 }
 
+.corner-buttons {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  display: flex;
+  gap: 10px;
+}
+
+.corner-buttons button {
+  background-color: transparent;
+  border: 2px solid #01e5fe;
+  color: #ffffff;
+  padding: 7px 13px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.corner-buttons button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.startbutton {
+  animation: fadeIn 1.5s ease-out forwards;
+  animation-delay: 1.5s;
+  background-color:#01e5fe;
+  border:2px solid #01e5fe;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-size:17px;
+  padding:16px 31px;
+  text-decoration:none;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
 .contactgrid {
   display: flex;
   flex-wrap: wrap;
@@ -34,55 +83,10 @@ h1 {
   background-color: rgba(255, 255, 255, 0.1);
   border: 1px solid #01e5fe;
   padding: 1.5rem;
-  border-radius: 0;
+  border-radius: 10px;
   width: 300px;
   box-sizing: border-box;
 }
-
-.backbutton {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease-out forwards;
-  animation-delay: 1s;
-
-	color: #ffffff;
-	background-color:#01e5fe;
-  border:2px solid #01e5fe;
-  display: block;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-	font-size: 19px;
-	padding: 15px 50px;
-	cursor: pointer;
-}
-
-.backbutton:hover {
-  	color: #01e5fe;
-  	background-color: #ffffff;
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
 
 .hyperlinks {
   color: #01e5fe;
