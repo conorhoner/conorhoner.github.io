@@ -30,6 +30,7 @@ h1 {
   font-size: 2.5rem;
   opacity: 0;
   animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 1s;
 }
 
 .backbutton {
