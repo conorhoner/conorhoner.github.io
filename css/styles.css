@@ -29,6 +29,9 @@ h1 {
   right: 30px;
   display: flex;
   gap: 10px;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards;
+  animation-delay: 0.5s;
 }
 
 .corner-buttons button {
