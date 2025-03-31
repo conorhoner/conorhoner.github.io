@@ -77,6 +77,8 @@ h1 {
   justify-content: center;
   gap: 2rem;
   padding: 2rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .contact {
