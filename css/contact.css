@@ -22,26 +22,6 @@ h1 {
   font-size: 2.5rem;
 }
 
-.startbutton {
-  animation: fadeIn 1.5s ease-out forwards;
-  animation-delay: 1.5s;
-  background-color:#01e5fe;
-  border:2px solid #01e5fe;
-  display:inline-block;
-  cursor:pointer;
-  color:#ffffff;
-  font-size:17px;
-  padding:16px 31px;
-  text-decoration:none;
-  opacity: 0;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
 .contactgrid {
   display: flex;
   flex-wrap: wrap;
@@ -58,6 +38,30 @@ h1 {
   width: 300px;
   box-sizing: border-box;
 }
+
+.backbutton {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 1s;
+
+	color: #ffffff;
+	background-color:#01e5fe;
+  border:2px solid #01e5fe;
+  display: block;
+  margin-top: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+	font-size: 19px;
+	padding: 15px 50px;
+	cursor: pointer;
+}
+
+.backbutton:hover {
+  	color: #01e5fe;
+  	background-color: #ffffff;
+  }
 
 .hyperlinks {
   color: #01e5fe;
