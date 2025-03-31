@@ -1,9 +1,5 @@
 
 html, body {
-  background-image: url('/assets/images/bg.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,6 +15,10 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: url('/assets/images/bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
   font-family: Arial, sans-serif;
   text-align: center;
