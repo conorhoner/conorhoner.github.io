@@ -36,7 +36,7 @@ h1 {
   color: #ffffff;
   padding: 7px 13px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 .corner-buttons button:hover {
